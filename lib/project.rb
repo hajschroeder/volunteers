@@ -7,10 +7,6 @@ class Project
     @id = attributes.fetch(:id)
   end
 
-  # def title 
-  #   project_title = DB.exec("SELECT title FROM projects;")
-  # end
-
   def ==(project_to_compare)
     self.title() == project_to_compare.title()
   end
@@ -39,6 +35,13 @@ class Project
       Project.new({:title => title, :id => id})
     else
       nil
+    end
+  end
+
+  def volunteers 
+    find = Volunteer.find_by_project(self.id)
+    if find.any?
+      find
     end
   end
 
