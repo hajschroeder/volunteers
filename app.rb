@@ -1,3 +1,5 @@
+#!/usr/env ruby
+
 require('sinatra')
 require('sinatra/reloader')
 require('./lib/project')
@@ -28,6 +30,10 @@ end
 
 get('projects/new') do 
   erb(:new_project)
+end
+# this is a mirror of the above route. this works, the route above does not
+get('/projects/custom_route') do
+  erb(:test)
 end
 
 get('projects/:id') do 
@@ -79,4 +85,5 @@ delete('/projects/:id/volunteers/:volunteer_id') do
   @project = Project.find(params[:id].to_i())
   erb(:project)
 end
+
 
