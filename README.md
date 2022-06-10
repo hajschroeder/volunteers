@@ -42,7 +42,11 @@ _Note, this will require your local device to have Ruby installed_
 ___
 
 ## Known Bugs
-There are currently many bugs within the routing. Although the routes exist, are properly connected, and there are no spelling errors, Sinatra is still insisting that they don't know that ditty. It is something that will be combed through over the coming days 
+There are currently several routing errors. 
+* the patch method for updating a project name returns an undefined method error for 'update'. This is likely due to a syntax or spelling error somewhere
+* Users can successfully create a project, although the test fails. 
+
+
 
 ---
 
