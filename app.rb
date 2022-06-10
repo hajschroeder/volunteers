@@ -7,8 +7,9 @@ require('./lib/volunteer')
 require('pry')
 require('pg')
 also_reload('lib/**/*.rb')
+require('./db_access.rb')
 
-DB = PG.connect({:dbname => "volunteer_tracker"})
+#DB = PG.connect({:dbname => "volunteer_tracker"})
 
 get('/') do 
   @projects = Project.all
@@ -31,8 +32,6 @@ end
 get('/projects/new') do 
   erb(:new_project)
 end
-# this is a mirror of the above route. this works, the route above does not
-
 
 get('/projects/:id') do 
   @project = Project.find(params[:id].to_i())
@@ -59,13 +58,12 @@ delete('/projects/:id') do
 end
 
 get('/projects/:id/volunteers/:volunteer_id') do 
-  @project = Project.find(params[:id].to_i)
+  # @project = Project.find(params[:id].to_i)
   @volunteer = Volunteer.find(params[:volunteer_id].to_i())
-  # binding.pry
   erb(:volunteer)
 end
 
-post('/projects/:id') do 
+post('/projects/:id/volunteers') do 
   @project = Project.find(params[:id].to_i())
   volunteer = Volunteer.new(:name => params[:volunteer_name], :project_id => @project.id, :id => nil)
   volunteer.save()
