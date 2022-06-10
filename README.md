@@ -38,12 +38,12 @@ _Note, this will require your local device to have Ruby installed_
 * Bundle the gems by typing 'gem bundle install'. This will also install Sinatra to the project
 * Open a new terminal and from the root directory of the project type 'ruby app.rb'
 * In the browser navigate to 'localhost:4567' 
-* From there you may access the application and start adding, deleting, and editing words and their definitions. 
+* From there you may access the application and start adding, deleting, and editing projects and their volunteers. 
 ___
 
 ## Known Bugs
-There are currently several routing errors. 
-* the patch method for updating a project name returns an undefined method error for 'update'. This is likely due to a syntax or spelling error somewhere
+There are currently two failing tests. 
+* the patch method for updating a project name returns an undefined method error for 'has_key?'. This is likely due to a syntax or spelling error somewhere
 * Users can successfully create a project, although the test fails. 
 
 
