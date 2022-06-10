@@ -1,5 +1,6 @@
 require "spec_helper"
 
+
 describe Project do
   describe '#title' do
     it 'returns the project title' do
