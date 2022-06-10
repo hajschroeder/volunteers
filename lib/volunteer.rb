@@ -28,7 +28,10 @@ class Volunteer
     volunteers
   end
 
- 
+  def save 
+    result = DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}', #{@project_id}) RETURNING id;")
+    @id = result.first().fetch("id").to_i
+  end
 
   def self.find(id)
     volunteer = DB.exec("SELECT * FROM volunteers WHERE id = #{id};").first 
@@ -53,10 +56,6 @@ class Volunteer
     volunteers
   end
   
-  def save 
-    result = DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}', #{@project_id}) RETURNING id;")
-    @id = result.first().fetch("id").to_i
-  end
 
   def update(name, project_id)
     @name = name
@@ -68,8 +67,12 @@ class Volunteer
     DB.exec("DELETE FROM volunteers WHERE id = #{@id};")
   end
   
+  def self.clear 
+    DB.exec("DELETE FROM volunteers *;")
+  end
 
-
-
+  def project
+    Project.find(@project_id)
+  end
 
 end

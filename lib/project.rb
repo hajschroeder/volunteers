@@ -23,7 +23,7 @@ class Project
   end
 
   def save
-    result =  DB.exec("INSERT INTO projects (title) VALUES ('#{title}') RETURNING id;")
+    result = DB.exec("INSERT INTO projects (title) VALUES ('#{@title}') RETURNING id;")
     @id = result.first().fetch("id").to_i
   end
 
@@ -35,7 +35,7 @@ class Project
       Project.new({:title => title, :id => id})
     else
       nil
-    end
+    end 
   end
 
   def volunteers 
@@ -57,6 +57,9 @@ class Project
     DB.exec("DELETE FROM volunteers WHERE project_id = #{@id};")
   end
   
+  def self.clear
+    DB.exec("DELETE FROM projects *;")
+  end
   
 
 end
