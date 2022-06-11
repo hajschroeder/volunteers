@@ -43,7 +43,7 @@ ___
 
 ## Known Bugs
 There are currently two failing tests. 
-* the patch method for updating a project name returns an undefined method error for 'has_key?'. This is likely due to a syntax or spelling error somewhere
+* the patch method for updating a project name returns an undefined method error for 'has_key?'. This is likely due to a syntax or spelling error somewhere.
 * Users can successfully create a project, although the test fails. 
 
 
