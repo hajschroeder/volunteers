@@ -42,9 +42,7 @@ _Note, this will require your local device to have Ruby installed_
 ___
 
 ## Known Bugs
-There are currently two failing tests. 
-* the patch method for updating a project name returns an undefined method error for 'has_key?'. This is likely due to a syntax or spelling error somewhere.
-* Users can successfully create a project, although the test fails. 
+The application is currently running with no bugs, and all provided tests are passing. 
 
 
 
